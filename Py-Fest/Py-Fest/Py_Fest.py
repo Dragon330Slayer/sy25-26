@@ -1,12 +1,9 @@
 # The initial lineup
-total_time = 0
-total_time += duration
 lineup = [
     ("Code Play", "Indie", 30),
     ("The Pythonistas", "Rock", 45),
     ("Syntax Error", "Metal", 60)
 ]
-
 
 while True:
     print("\n---Py-Fest 2026 Stage Manager---")
@@ -18,5 +15,17 @@ while True:
     print("6. Exit")
     print(f"Total Festival Duration: {total_time} minutes")
     choice = input("Select an option (1-6): ")
+
     if choice == "1":
         print("\n---Current Lineup---")
+        print(lineup)
+        
+    elif choice == "2":
+        name = input("Enter band name: ")
+        genre = input("Enter band genre: ")
+        duration = int(input("Enter performance duration (in minutes): "))
+        lineup.append((name, genre, duration))
+        total_time += duration
+        print(f"{name} added")
+        print(f"{i}. {name} ({genre}) - {duration} mins")
+

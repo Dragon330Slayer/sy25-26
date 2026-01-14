@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 lineup = [
     ("Code Play", "Indie", 30),
     ("The Pythonistas", "Rock", 45),

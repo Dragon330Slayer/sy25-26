@@ -1,0 +1,22 @@
+1|63|25|George Russell|Mercedes
+2|12|18|Kimi Antonelli|Mercedes
+3|16|15|Charles Leclerc|Ferrari
+4|44|12|Lewis Hamilton|Ferrari
+5|1|10|Lando Norris|McLaren
+6|3|8|Max Verstappen|Red Bull Racing
+7|87|6|Oliver Bearman|Haas F1 Team
+8|41|4|Arvid Lindblad|Racing Bulls
+9|5|2|Gabriel Bortoleto|Audi
+10|10|1|Pierre Gasly|Alpine
+11|31|0|Esteban Ocon|Haas F1 Team
+12|23|0|Alexander Albon|Williams
+13|30|0|Liam Lawson|Racing Bulls
+14|43|0|Franco Colapinto|Alpine
+15|55|0|Carlos Sainz|Williams
+16|11|0|Sergio Perez|Cadillac
+17|18|0|Lance Stroll|Aston Martin
+18|14|0|Fernando Alonso|Aston Martin
+19|77|0|Valtteri Bottas|Cadillac
+20|6|0|Isack Hadjar|Red Bull Racing
+21|81|0|Oscar Piastri|McLaren
+22|27|0|Nico Hulkenberg|Audi

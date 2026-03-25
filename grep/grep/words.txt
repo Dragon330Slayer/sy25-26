@@ -1,0 +1,9 @@
+cat
+house
+car
+dog
+cow
+book
+rat
+lake
+tree

@@ -23,6 +23,17 @@ enemy_pos = [random.randint(0, WIDTH - enemy_size), 0]
 enemy_speed = 10
 speed_increment = 5  # How much the speed increases per score
 
+# Trail properties
+trail_length = 15  # Number of trail segments
+enemy_trail = []   # List to store previous positions
+
+# Load images
+player_image = pygame.image.load("player.jpg")
+player_image = pygame.transform.scale(player_image, (player_size, player_size))
+
+enemy_image = pygame.image.load("enemy.jpg")
+enemy_image = pygame.transform.scale(enemy_image, (enemy_size, enemy_size))
+
 score = 0
 game_over = False
 
@@ -44,6 +55,12 @@ while not game_over:
     # Update enemy position
     enemy_pos[1] += enemy_speed
 
+    # --- TRAIL LOGIC ---
+    # Add current enemy position to the trail
+    enemy_trail.append((enemy_pos[0], enemy_pos[1]))
+    if len(enemy_trail) > trail_length:
+        enemy_trail.pop(0)
+
     # --- BUG 2: Resetting the Enemy ---
     if enemy_pos[1] > HEIGHT:
         # The enemy should go back to the top with a new X position
@@ -52,6 +69,7 @@ while not game_over:
         score += 1
         enemy_speed += speed_increment  # Increase enemy speed
         print(f"Score: {score}, Enemy Speed: {enemy_speed}")
+        enemy_trail.clear()  # Clear trail when enemy resets
 
     # --- BUG 3: Collision Detection ---
     player_rect = pygame.Rect(player_pos[0], player_pos[1], player_size, player_size)
@@ -62,12 +80,21 @@ while not game_over:
 
     # Drawing
     screen.fill((0, 0, 0))
-    
-    pygame.draw.rect(screen, RED, (enemy_pos[0], enemy_pos[1], enemy_size, enemy_size))
-    pygame.draw.rect(screen, BLUE, (player_pos[0], player_pos[1], player_size, player_size))
+
+    # Draw enemy trail (fading effect)
+    for i, (x, y) in enumerate(enemy_trail):
+        alpha = int(255 * (i + 1) / trail_length)
+        trail_surface = pygame.Surface((enemy_size, enemy_size), pygame.SRCALPHA)
+        trail_surface.fill((255, 0, 0, alpha // 3))  # Fainter than main enemy
+        screen.blit(trail_surface, (x, y))
+
+    # Draw enemy image
+    screen.blit(enemy_image, (enemy_pos[0], enemy_pos[1]))
+
+    # Draw player image
+    screen.blit(player_image, (player_pos[0], player_pos[1]))
 
     pygame.display.update()
     clock.tick(30)
 
 pygame.quit()
-
